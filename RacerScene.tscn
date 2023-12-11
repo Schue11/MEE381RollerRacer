@@ -38,6 +38,7 @@ shadow_enabled = true
 environment = SubResource("Environment_30qf6")
 
 [node name="Cart" parent="." instance=ExtResource("2_olq67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.761074, 0)
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_4c2am")

@@ -70,7 +70,28 @@ public class LinAlgEq
             M[i][n] = _b[i];
         }
 
-        // perform Gauss elimination
+        double fac;
+        for (i=0; i<(n-1);++i)
+        {
+            PivotRow(i);
+            for(j=i+1;j<n;++j)
+            {
+                fac = M[j][i] / M[i][i];
+                for(k=i; k<=n; ++k)
+                {
+                    M[j][k] -= fac*M[i][k];
+                }
+            }
+        }
+        double sum;
+        for(i=n-1; i >= 0; --i){
+            sum = M[i][n];
+            for(j=n-1;j>i; --j){
+                sum -= M[i][j] * _x[j];
+            }
+            _x[i] = sum/M[i][i];
+        }
+        // perform Gauss elimination*******************************************************************
         // ######## YOU MUST WRITE YOUR GAUSS ELIMINATION CODE HERE
         // ######## FIRST, GET IT WORKING WITHOUT PIVOTING
         // ########     ONCE YOU GET IT WORKING WITHOUT PIVOTING, 
